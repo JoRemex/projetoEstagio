@@ -1,0 +1,24 @@
+.mainSquare {
+  width: 24rem;
+  height: 25rem;
+  margin-left: 8rem;
+  background-color: #c4c4c4;
+}
+.mainToDo {
+  width: 50rem;
+  height: 35rem;
+  margin-left: 8rem;
+  background-color: #807575;
+}
+.calendar {
+  width: 20rem;
+  height: 11rem;
+  margin-left: 8rem;
+  background-color: #c4c4c4;
+}
+.notes {
+  width: 20rem;
+  height: 13rem;
+  margin-left: 8rem;
+  background-color: #c4c4c4;
+}
