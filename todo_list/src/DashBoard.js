@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-import Outro from "./components/navbar";
+import Outro from "./components/Navbar";
 import Home from "./Home";
 function DashBoard() {
   return (

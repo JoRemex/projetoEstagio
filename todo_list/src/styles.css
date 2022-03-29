@@ -8,7 +8,7 @@
   width: 50rem;
   height: 35rem;
   margin-left: 8rem;
-  background-color: #807575;
+  background-color: #c4c4c4;
 }
 .calendar {
   width: 20rem;
@@ -18,7 +18,7 @@
 }
 .notes {
   width: 20rem;
-  height: 13rem;
+  height: 25rem;
   margin-left: 8rem;
   background-color: #c4c4c4;
 }
