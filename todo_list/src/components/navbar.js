@@ -13,7 +13,7 @@ import NoteAltIcon from "@mui/icons-material/NoteAlt";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import LogoutIcon from "@mui/icons-material/Logout";
 
-function Outro() {
+function Navbar() {
   return (
     <div>
       {" "}
@@ -62,4 +62,4 @@ function Outro() {
     </div>
   );
 }
-export default Outro;
+export default Navbar;
