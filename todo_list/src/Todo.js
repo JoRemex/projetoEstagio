@@ -1,5 +1,6 @@
 import { dividerClasses } from "@mui/material";
 import React from "react";
+import DataTable from "./Exemplos";
 
 const Todo = ({ text, todo, todos, setTodos }) => {
   //Events

@@ -3,12 +3,20 @@ import React, { Fragment, useEffect } from "react";
 import { Stack } from "@mui/material";
 import { useState } from "react";
 import theme from "../theme";
-import DashBoard from "../DashBoard";
-import ToDoPage from "../ToDoPage";
-import TodoForm from "../TodoForm";
+import "../styles.css";
 import { Form } from "../Form";
 import TodoList from "../TodoList";
 import Navbar from "./Navbar";
+import DataTable from "../Exemplos";
+
+import {
+  HashRouter as Router,
+  Switch,
+  useNavigate,
+  Route,
+  BrowserRouter,
+  Routes,
+} from "react-router-dom";
 
 function App() {
   //zona dos states
@@ -16,9 +24,15 @@ function App() {
   const [todos, setTodos] = useState([]);
   const [status, setStatus] = useState("all");
   const [filteredTodos, setFilteredTodos] = useState([]);
+
+  //Usado ao inicializar
+  useEffect(() => {
+    getLocalTodos();
+  }, []);
   //useEffect
   useEffect(() => {
     filterHandler();
+    saveLocalTodos();
   }, [todos, status]);
   //funções
   const filterHandler = () => {
@@ -34,28 +48,50 @@ function App() {
         break;
     }
   };
+  //Local Storage
+  const saveLocalTodos = () => {
+    localStorage.setItem("todos", JSON.stringify(todos));
+  };
+  const getLocalTodos = () => {
+    if (localStorage.getItem("todos") === null) {
+      localStorage.setItem("todos", JSON.stringify([]));
+    } else {
+      let todoLocal = JSON.parse(localStorage.getItem("todos"));
+      setTodos(todoLocal);
+    }
+  };
   return (
-    <Fragment>
-      <ThemeProvider theme={theme}>
-        <Stack>
-        <Navbar/>
-          <div>
-            <Form
-              inputText={inputText}
-              todos={todos}
-              setTodos={setTodos}
-              setInputText={setInputText}
-              setStatus={setStatus}
-            />
-            <TodoList
-              filteredTodos={filteredTodos}
-              setTodos={setTodos}
-              todos={todos}
-            />
-          </div>
-        </Stack>
-      </ThemeProvider>
-    </Fragment>
+    <BrowserRouter>
+      <Navbar />
+      <Routes>
+        <Route
+          path=""
+          element={
+            <Fragment>
+              <Form
+                inputText={inputText}
+                todos={todos}
+                setTodos={setTodos}
+                setInputText={setInputText}
+                setStatus={setStatus}
+              />
+              <TodoList
+                filteredTodos={filteredTodos}
+                setTodos={setTodos}
+                todos={todos}
+              />
+            </Fragment>
+          }
+        />
+
+        <Route
+          path="/nao"
+          element={
+            <DataTable/>
+          }
+        ></Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 

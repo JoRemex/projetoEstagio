@@ -12,11 +12,12 @@ import ListAltIcon from "@mui/icons-material/ListAlt";
 import NoteAltIcon from "@mui/icons-material/NoteAlt";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import LogoutIcon from "@mui/icons-material/Logout";
+import { useNavigate } from "react-router-dom";
 
 function Navbar() {
+  let navigate = useNavigate();
   return (
-    <div>
-      {" "}
+    <Stack>
       <Box display="flex">
         <AppBar>
           <Toolbar>
@@ -28,6 +29,7 @@ function Navbar() {
             >
               <Stack direction="row">
                 <IconButton
+                  onClick={() => navigate("/")}
                   size="large"
                   edge="start"
                   color="inherit"
@@ -36,6 +38,7 @@ function Navbar() {
                   <DashboardIcon />
                 </IconButton>
                 <IconButton
+                  onClick={() => navigate("/nao")}
                   size="large"
                   edge="start"
                   color="inherit"
@@ -48,7 +51,12 @@ function Navbar() {
                 </IconButton>
               </Stack>
               <Stack direction="row">
-                <IconButton size="large" disabled color="warning" sx={{ mr: 1 }}>
+                <IconButton
+                  size="large"
+                  disabled
+                  color="warning"
+                  sx={{ mr: 1 }}
+                >
                   <DarkModeIcon />
                 </IconButton>
                 <IconButton size="large" disabled edge="start" color="inherit">
@@ -59,7 +67,8 @@ function Navbar() {
           </Toolbar>
         </AppBar>
       </Box>
-    </div>
+      <Stack margin={7}></Stack>
+    </Stack>
   );
 }
 export default Navbar;

@@ -1,9 +1,3 @@
-.mainSquare {
-  width: 24rem;
-  height: 25rem;
-  margin-left: 8rem;
-  background-color: #c4c4c4;
-}
 .mainToDo {
   width: 50rem;
   height: 35rem;
@@ -38,7 +32,7 @@ color: red;
   box-sizing: border-box;
 }
 body {
-  background-image: linear-gradient(290deg,#1a4f53 0%, #6aafb7fe 80%);
+  background-image: linear-gradient(210deg,#b9b9b9 0%, #849494fe 80%);
   color: white;
   font-family: "Poppins", sans-serif;
   min-height: 100vh;
@@ -62,13 +56,13 @@ form button {
   background: white;
 }
 form button {
-  color: #ff6f47;
+  color: #365ed6;
   background: #f7fffe;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 form button:hover {
-  background: #ff6f47;
+  background: #365ed6;
   color: white;
 }
 .todo-container {
@@ -159,7 +153,7 @@ select {
   top: 0;
   right: 0;
   padding: 1rem;
-  background: yellow;
+  background: #365ed6;
   cursor: pointer;
   pointer-events: none;
 }
