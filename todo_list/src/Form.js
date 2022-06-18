@@ -1,7 +1,6 @@
 import { Stack } from "@mui/material";
 import React, { Fragment } from "react";
-import DataTable from "./Exemplos";
-
+import { Regista2 } from "./Regista2";
 export const Form = ({
   setInputText,
   todos,
@@ -10,6 +9,7 @@ export const Form = ({
   setStatus,
 }) => {
   //
+
   const inputTextHandler = (e) => {
     setInputText(e.target.value);
   };
@@ -21,6 +21,7 @@ export const Form = ({
     ]);
     setInputText("");
   };
+
   const statusHandler = (e) => {
     setStatus(e.target.value);
   };

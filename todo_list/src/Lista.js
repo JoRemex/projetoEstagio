@@ -2,15 +2,15 @@
 // import React from "react";
 // import DataTable from "./Exemplos";
 
-// const Todo = ({ text, todo, todos, setTodos }) => {
+// const Lista = ({ text, lista, listas, setListas }) => {
 //   //Events
 //   const deleteHandler = () => {
-//     setTodos(todos.filter((el) => el.id !== todo.id));
+//     setListas(listas.filter((el) => el.id !== lista.id));
 //   };
 //   const completeHandler = () => {
-//     setTodos(
-//       todos.map((item) => {
-//         if (item.id === todo.id) {
+//     setListas(
+//       listas.map((item) => {
+//         if (item.id === lista.id) {
 //           return { ...item, completed: !item.completed };
 //         }
 //         return item;
@@ -19,7 +19,7 @@
 //   };
 //   return (
 //     <div className="todo">
-//       <li className={` ${todo.completed ? "completed" : ""}`}>{text}qwe</li>
+//       <li className={` ${lista.completed ? "completed" : ""}`}>{text}</li>
 //       <button className="complete-btn" onClick={completeHandler}>
 //         <i>+</i>
 //       </button>
@@ -29,4 +29,4 @@
 //     </div>
 //   );
 // };
-// export default Todo;
+// export default Lista;
