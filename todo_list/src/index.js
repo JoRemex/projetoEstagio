@@ -1,13 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./components/App";
-import { ThemeProvider } from "@material-ui/core/styles";
-import { CssBaseline } from "@mui/material";
-import theme from "./theme";
-import { configureStore } from "@reduxjs/toolkit";
-import { createStore } from "redux";
-import allReducer from "./reducers";
 import { Provider } from "react-redux";
+import { createStore } from "redux";
+import App from "./components/App";
+import allReducer from "./reducers";
 
 const store = createStore(
   allReducer,

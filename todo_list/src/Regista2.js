@@ -5,27 +5,27 @@ import {
   MenuItem,
   Select,
   Stack,
-  TextField,
+  TextField
 } from "@mui/material";
-import React, { Fragment } from "react";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { MobileDatePicker } from "@mui/x-date-pickers/MobileDatePicker";
+import React, { Fragment } from "react";
 //----abaixo estão os imports da tabela
+import Paper from "@mui/material/Paper";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
-import Paper from "@mui/material/Paper";
-import { v4 as uuid } from "uuid";
 import { useDispatch, useSelector } from "react-redux";
-import { increment, decrement, changeIt, array } from "./actions";
+import { v4 as uuid } from "uuid";
+import { array } from "./actions";
 
 function DenseTable() {
   const data = useSelector((store) => store.array);
-  console.log(data);
+ // console.log(data);
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 500 }} size="small" aria-label="a dense table">
@@ -96,7 +96,7 @@ export const Regista2 = ({
 
   const handleChange = (newValue) => {
     setInputDate(newValue);
-    console.log(newValue);
+   // console.log(newValue);
   };
   //--------------------------------------------------------------------------------------------------------------------
 
@@ -106,9 +106,9 @@ export const Regista2 = ({
     setPrior(event.target.value);
   };
   //
-  function createData(title, text, priority, date) {
-    return { title, text, priority, date };
-  }
+  // function createData(title, text, priority, date) {
+  //   return { title, text, priority, date };
+  // }
   //("Marca: " + elemento.title + " - modelo: " + elemento.text);
   const dispatch = useDispatch();
 
@@ -116,13 +116,19 @@ export const Regista2 = ({
     <Fragment>
       <Stack mt={-10}>
         <Stack className="form">
+
+          {/* abaixo está o input de titulo */}
           <input value={inputOne} onChange={inputFirstHandler} type="text" />
+
+          {/* abaixo deveria estar caixa de texto */}
           <input
             className="todo-input"
             value={inputTwo}
             onChange={inputSecondHandler}
             type="text"
           />
+
+          {/* abaixo está o botão + para submit */}
           <button
             className="todo-button"
             onClick={() => {

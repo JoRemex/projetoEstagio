@@ -1,32 +1,20 @@
-import * as React from "react";
-import { DataGrid } from "@mui/x-data-grid";
-import Todo from "./Todo";
-import { Stack, TableContainer, TableHead, Button } from "@mui/material";
-import Expand from "./Expand";
-import { Regista2 } from "./Regista2";
-import Table from "@mui/material/Table";
-import TableBody from "@mui/material/TableBody";
-import IconButton from "@mui/material/IconButton";
 import DeleteIcon from "@mui/icons-material/Delete";
-import TableCell from "@mui/material/TableCell";
-import TableRow from "@mui/material/TableRow";
 import EditIcon from "@mui/icons-material/Edit";
-import Paper from "@mui/material/Paper";
-import Dialog from "@mui/material/Dialog";
-import DialogActions from "@mui/material/DialogActions";
-import DialogContent from "@mui/material/DialogContent";
-import DialogContentText from "@mui/material/DialogContentText";
-import DialogTitle from "@mui/material/DialogTitle";
-import { useDispatch, useSelector } from "react-redux";
-import EditTask from "./EditTask";
 import {
-  Box,
-  FormControl,
+  Box, Button, FormControl,
   InputLabel,
   MenuItem,
-  Select,
-  TextField,
+  Select, Stack, TableContainer, TableHead
 } from "@mui/material";
+import IconButton from "@mui/material/IconButton";
+import Paper from "@mui/material/Paper";
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell from "@mui/material/TableCell";
+import TableRow from "@mui/material/TableRow";
+import * as React from "react";
+import { useSelector } from "react-redux";
+import EditTask from "./EditTask";
 import RemoveTask from "./RemoveTask";
 
 export default function DataTable({ inputText }) {
