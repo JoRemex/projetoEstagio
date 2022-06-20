@@ -4,3 +4,15 @@ export const array = (obj) => {
     payload: obj,
   };
 };
+export const editTask = (task) => {
+  return {
+    type: "EDIT",
+    payload: task,
+  };
+};
+export const removeTask = (id) => {
+  return {
+    type: "REMOVE",
+    payload: id,
+  };
+};

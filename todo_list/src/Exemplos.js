@@ -18,7 +18,7 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import { useDispatch, useSelector } from "react-redux";
-import EditTask from "./EditTask"
+import EditTask from "./EditTask";
 import {
   Box,
   FormControl,
@@ -27,6 +27,7 @@ import {
   Select,
   TextField,
 } from "@mui/material";
+import RemoveTask from "./RemoveTask";
 
 export default function DataTable({ inputText }) {
   const [prior, setPrior] = React.useState("");
@@ -38,10 +39,13 @@ export default function DataTable({ inputText }) {
 
   const [open, setOpen] = React.useState(false);
   const [edit, setEdit] = React.useState("");
+  const [sOpen, setSopen] = React.useState(false);
+  const [sEdit, setSedit] = React.useState("");
 
   return (
     <>
-    <EditTask setOpen={setOpen} edit={edit} open={open}/>
+      <EditTask setOpen={setOpen} edit={edit} open={open} />
+      <RemoveTask setOpen={setSopen} open={sOpen} id={sEdit} />
       <Stack alignItems="center">
         <Stack direction="row" spacing={1}>
           <Box alignItems="center" sx={{ minWidth: 120 }}>
@@ -99,7 +103,14 @@ export default function DataTable({ inputText }) {
                     >
                       <EditIcon fontSize="inherit" />
                     </IconButton>
-                    <IconButton aria-label="delete" size="small">
+                    <IconButton
+                      onClick={() => {
+                        setSopen(true);
+                        setSedit(row.id)
+                      }}
+                      aria-label="delete"
+                      size="small"
+                    >
                       <DeleteIcon fontSize="inherit" />
                     </IconButton>
                   </TableCell>

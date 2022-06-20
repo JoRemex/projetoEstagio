@@ -19,6 +19,7 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
+import { v4 as uuid } from "uuid";
 import { useDispatch, useSelector } from "react-redux";
 import { increment, decrement, changeIt, array } from "./actions";
 
@@ -128,6 +129,7 @@ export const Regista2 = ({
               if (inputOne !== "" && inputTwo !== "" && prior !== "") {
                 dispatch(
                   array({
+                    id: uuid(),
                     title: inputOne,
                     describe: inputTwo,
                     priority: prior,

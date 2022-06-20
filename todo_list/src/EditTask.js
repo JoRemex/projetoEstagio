@@ -12,12 +12,20 @@ import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogTitle from "@mui/material/DialogTitle";
-import React from "react";
+import React, { useCallback, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { editTask } from "./actions";
 
 export default function EditTask({ open, setOpen, edit }) {
   const [title, setTitle] = React.useState(edit.title);
   const [describe, setDescribe] = React.useState(edit.describe);
   const [priority, setPriority] = React.useState(edit.priority);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    setTitle(edit.title);
+    setDescribe(edit.describe);
+    setPriority(edit.priority);
+  }, [edit]);
   return (
     <Dialog open={open} onClose={() => setOpen(false)}>
       <DialogTitle>Editar Tarefa</DialogTitle>
@@ -59,7 +67,21 @@ export default function EditTask({ open, setOpen, edit }) {
       </DialogContent>
       <DialogActions>
         <Button onClick={() => setOpen(false)}>Cancelar</Button>
-        <Button>Editar</Button>
+        <Button
+          onClick={() => {
+            dispatch(
+              editTask({
+                id: edit.id,
+                title: title,
+                describe: describe,
+                priority: priority,
+              })
+            );
+            setOpen(false);
+          }}
+        >
+          Editar
+        </Button>
       </DialogActions>
     </Dialog>
   );
