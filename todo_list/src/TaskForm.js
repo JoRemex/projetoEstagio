@@ -12,16 +12,14 @@ import {
   Stack,
   TextField,
 } from "@mui/material";
-import { useState } from "react";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-import { MobileDatePicker } from "@mui/x-date-pickers/MobileDatePicker";
-import React from "react";
+import { useState } from "react";
 //----abaixo estão os imports da tabela
+import { DesktopDatePicker } from "@mui/lab";
 import { useDispatch } from "react-redux";
 import { v4 as uuid } from "uuid";
 import { array } from "./actions";
-import { DesktopDatePicker } from "@mui/lab";
 
 //---------------------------------------------------------------------------------------------------------
 export const TaskForm = () => {
@@ -81,23 +79,28 @@ export const TaskForm = () => {
             variant="outlined"
             type="text"
           />
-          <Box alignItems="center" sx={{ minWidth: 120 }}>
-            <FormControl fullWidth>
-              <InputLabel id="demo-simple-select-label">Prioridade</InputLabel>
-              <Select
-                labelId="demo-simple-select-label"
-                id="demo-simple-select"
-                value={prior}
-                label="prior"
-                onChange={newHandleChange}
-              >
-                <MenuItem value={"baixa"}>Baixa</MenuItem>
-                <MenuItem value={"média"}>Média</MenuItem>
-                <MenuItem value={"alta"}>Alta</MenuItem>
-              </Select>
-            </FormControl>
-          </Box>
-          <Stack justifyContent="center" alignItems="center">
+          <Stack marginTop={1}>
+            <Box alignItems="center" sx={{ minWidth: 120 }}>
+              <FormControl fullWidth>
+                <InputLabel id="demo-simple-select-label">
+                  Prioridade
+                </InputLabel>
+                <Select
+                  labelId="demo-simple-select-label"
+                  id="demo-simple-select"
+                  value={prior}
+                  label="prior"
+                  onChange={newHandleChange}
+                >
+                  <MenuItem value={"baixa"}>Baixa</MenuItem>
+                  <MenuItem value={"média"}>Média</MenuItem>
+                  <MenuItem value={"alta"}>Alta</MenuItem>
+                </Select>
+              </FormControl>
+            </Box>
+          </Stack>
+
+          <Stack justifyContent="center" alignItems="center" marginTop={2}>
             <LocalizationProvider dateAdapter={AdapterDateFns}>
               <DesktopDatePicker
                 label="Date desktop"
@@ -126,7 +129,8 @@ export const TaskForm = () => {
                 setInputOne("");
                 setInputTwo("");
               }
-              handleClose();
+              // handleClose();
+              
             }}
           >
             Adicionar

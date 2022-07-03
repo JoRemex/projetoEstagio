@@ -7,8 +7,9 @@ import { AppBar, IconButton, Stack, Toolbar } from "@mui/material";
 import { Box } from "@mui/system";
 import { useNavigate } from "react-router-dom";
 
-function Navbar() {
+export default function Navbar() {
   let navigate = useNavigate();
+
   return (
     <Stack className="navbar">
       <Box display="flex">
@@ -44,12 +45,7 @@ function Navbar() {
                 </IconButton>
               </Stack>
               <Stack direction="row">
-                <IconButton
-                  size="large"
-                  disabled
-                  color="warning"
-                  sx={{ mr: 1 }}
-                >
+                <IconButton size="large" color="danger" sx={{ mr: 1 }}>
                   <DarkModeIcon />
                 </IconButton>
                 <IconButton size="large" disabled edge="start" color="inherit">
@@ -63,4 +59,3 @@ function Navbar() {
     </Stack>
   );
 }
-export default Navbar;
