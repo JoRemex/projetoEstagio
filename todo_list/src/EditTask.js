@@ -1,3 +1,4 @@
+import { SettingsInputAntennaTwoTone } from "@mui/icons-material";
 import {
   Box,
   Button,
@@ -6,7 +7,7 @@ import {
   MenuItem,
   Select,
   Stack,
-  TextField
+  TextField,
 } from "@mui/material";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
@@ -20,11 +21,13 @@ export default function EditTask({ open, setOpen, edit }) {
   const [title, setTitle] = useState(edit.title);
   const [describe, setDescribe] = useState(edit.describe);
   const [priority, setPriority] = useState(edit.priority);
+  const [state, setState] = useState(edit.state);
   const dispatch = useDispatch();
   useEffect(() => {
     setTitle(edit.title);
     setDescribe(edit.describe);
     setPriority(edit.priority);
+    setState(edit.state);
   }, [edit]);
   return (
     <Dialog open={open} onClose={() => setOpen(false)}>
@@ -42,6 +45,7 @@ export default function EditTask({ open, setOpen, edit }) {
             value={describe}
             onChange={(e) => {
               setDescribe(e.target.value);
+              console.log(e);
             }}
             label="Descrição"
           />
@@ -63,6 +67,24 @@ export default function EditTask({ open, setOpen, edit }) {
               </Select>
             </FormControl>
           </Box>
+          <Box alignItems="center" sx={{ minWidth: 120 }}>
+            <FormControl fullWidth>
+              <InputLabel id="demo-simple-select-label">Estado</InputLabel>
+              <Select
+                labelId="demo-simple-select-label"
+                id="demo-simple-select"
+                label="prior"
+                value={state}
+                onChange={(e) => {
+                  setState(e.target.value);
+                }}
+              >
+                <MenuItem value={"newTodo"}>Novo</MenuItem>
+                <MenuItem value={"inProgress"}>Em andamento</MenuItem>
+                <MenuItem value={"done"}>Feito</MenuItem>
+              </Select>
+            </FormControl>
+          </Box>
         </Stack>
       </DialogContent>
       <DialogActions>
@@ -75,6 +97,7 @@ export default function EditTask({ open, setOpen, edit }) {
                 title: title,
                 describe: describe,
                 priority: priority,
+                state: state,
               })
             );
             setOpen(false);

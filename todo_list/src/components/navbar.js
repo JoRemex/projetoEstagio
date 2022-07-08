@@ -2,13 +2,16 @@ import DarkModeIcon from "@mui/icons-material/DarkMode";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import ListAltIcon from "@mui/icons-material/ListAlt";
 import LogoutIcon from "@mui/icons-material/Logout";
-import NoteAltIcon from "@mui/icons-material/NoteAlt";
-import { AppBar, IconButton, Stack, Toolbar } from "@mui/material";
+import MailIcon from "@mui/icons-material/Mail";
+import { AppBar, Badge, IconButton, Stack, Toolbar } from "@mui/material";
 import { Box } from "@mui/system";
+import { useSelector } from "react-redux";
+import AssignmentIcon from "@mui/icons-material/Assignment";
 import { useNavigate } from "react-router-dom";
 
 export default function Navbar() {
   let navigate = useNavigate();
+  const data = useSelector((store) => store.array);
 
   return (
     <Stack className="navbar">
@@ -40,17 +43,11 @@ export default function Navbar() {
                 >
                   <ListAltIcon />
                 </IconButton>
-                <IconButton size="large" edge="start" disabled color="inherit">
-                  <NoteAltIcon />
-                </IconButton>
-              </Stack>
-              <Stack direction="row">
-                <IconButton size="large" color="danger" sx={{ mr: 1 }}>
-                  <DarkModeIcon />
-                </IconButton>
-                <IconButton size="large" disabled edge="start" color="inherit">
-                  <LogoutIcon />
-                </IconButton>
+                <Stack justifyContent="center">
+                  <Badge badgeContent={data.length} color="error">
+                    <AssignmentIcon color="action" />
+                  </Badge>
+                </Stack>
               </Stack>
             </Stack>
           </Toolbar>

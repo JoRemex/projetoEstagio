@@ -36,6 +36,13 @@ export const TaskForm = () => {
   const newHandleChange = (event) => {
     setPrior(event.target.value);
   };
+
+  const stateHandleChange = (event) => {
+    setState(event.target.value);
+  };
+
+  const [state, setState] = useState("newTodo");
+
   const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
   const handleClickOpen = () => {
@@ -99,8 +106,25 @@ export const TaskForm = () => {
               </FormControl>
             </Box>
           </Stack>
-
-          <Stack justifyContent="center" alignItems="center" marginTop={2}>
+          <Stack marginTop={1}>
+            <Box alignItems="center" sx={{ minWidth: 120 }}>
+              <FormControl fullWidth>
+                <InputLabel id="demo-simple-select-label">Estado</InputLabel>
+                <Select
+                  labelId="demo-simple-select-label"
+                  id="demo-simple-select"
+                  value={state}
+                  label="state"
+                  onChange={stateHandleChange}
+                >
+                  <MenuItem value={"newTodo"}>Novo</MenuItem>
+                  <MenuItem value={"inProgress"}>Em andamento</MenuItem>
+                  <MenuItem value={"done"}>Feito</MenuItem>
+                </Select>
+              </FormControl>
+            </Box>
+          </Stack>
+          <Stack marginTop={2}>
             <LocalizationProvider dateAdapter={AdapterDateFns}>
               <DesktopDatePicker
                 label="Date desktop"
@@ -124,13 +148,15 @@ export const TaskForm = () => {
                     describe: inputTwo,
                     priority: prior,
                     date: inputDate,
+                    state: state,
                   })
                 );
                 setInputOne("");
                 setInputTwo("");
+                setPrior("");
+                setState("");
               }
-              // handleClose();
-              
+              handleClose();
             }}
           >
             Adicionar

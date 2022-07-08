@@ -28,15 +28,18 @@ export default function Detail() {
   const [prior, setPrior] = React.useState("");
   //const deleteHandler = () => {};
   let data = useSelector((store) => store.array);
+  let filtrado = useSelector((store)=>store.array)
   if (prior !== "") {
     data = data.filter((row) => row.priority === prior);
   }
-
+  const [state, setState] = React.useState("");
+  if (state !== "") {
+    data = data.filter((row) => row.state === state);
+  }
   const [open, setOpen] = React.useState(false);
   const [edit, setEdit] = React.useState("");
   const [sOpen, setSopen] = React.useState(false);
   const [sEdit, setSedit] = React.useState("");
-
   return (
     <>
       <EditTask setOpen={setOpen} edit={edit} open={open} />
@@ -45,6 +48,24 @@ export default function Detail() {
       {/*abaixo está toda a informação excepto NAVBAR */}
       <Stack alignItems="center" spacing={2}>
         <Stack direction="row" spacing={1}>
+          <Box alignItems="center" sx={{ minWidth: 120 }}>
+            <FormControl fullWidth>
+              <InputLabel id="demo-simple-select-label">Estado</InputLabel>
+              <Select
+                labelId="demo-simple-select-label"
+                id="demo-simple-select"
+                value={state}
+                label="state"
+                onChange={(event) => {
+                  setState(event.target.value);
+                }}
+              >
+                <MenuItem value={"newTodo"}>Novo</MenuItem>
+                <MenuItem value={"inProgress"}>Em andamento</MenuItem>
+                <MenuItem value={"done"}>Feito</MenuItem>
+              </Select>
+            </FormControl>
+          </Box>
           <Box alignItems="center" sx={{ minWidth: 120 }}>
             <FormControl fullWidth>
               <InputLabel id="demo-simple-select-label">Prioridade</InputLabel>
@@ -57,13 +78,17 @@ export default function Detail() {
                   setPrior(event.target.value);
                 }}
               >
-                <MenuItem value={"baixa"}>Baixa</MenuItem>{" "}
+                <MenuItem value={"baixa"}>Baixa</MenuItem>
                 <MenuItem value={"média"}>Média</MenuItem>
                 <MenuItem value={"alta"}>Alta</MenuItem>
               </Select>
             </FormControl>
           </Box>
-          <Button variant="contained" onClick={() => setPrior("")}>
+
+          <Button
+            variant="contained"
+            onClick={() => (setPrior(""), setState(""))}
+          >
             <RestartAltIcon />
           </Button>
           <TaskForm />
@@ -81,6 +106,7 @@ export default function Detail() {
                   <TableCell align="center">Descrição</TableCell>
                   <TableCell align="center">Prioridade</TableCell>
                   <TableCell align="center">Data</TableCell>
+                  <TableCell align="center">Estado</TableCell>
                   <TableCell align="center"></TableCell>
                 </TableRow>
               </TableHead>
@@ -98,6 +124,7 @@ export default function Detail() {
                     <TableCell align="center">
                       {row.date.toUTCString()}
                     </TableCell>
+                    <TableCell align="center">{row.state}</TableCell>
                     <TableCell align="center">
                       <IconButton
                         onClick={() => {
@@ -123,7 +150,13 @@ export default function Detail() {
                 ))}
               </TableBody>
             </Table>
-          </TableContainer>
+          </TableContainer>{" "}
+          <Stack mt={3} alignItems="center">
+
+            {
+            
+            console.log("counter")}
+          </Stack>
         </Stack>
       </Stack>
     </>
