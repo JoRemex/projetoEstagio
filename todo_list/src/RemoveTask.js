@@ -9,7 +9,6 @@ import { removeTask } from "./actions";
 
 export default function RemoveTask({ open, setOpen, id }) {
   const dispatch = useDispatch();
-  // console.log("edit.id   "+id)
   return (
     <Dialog open={open} onClose={() => setOpen(false)}>
       <DialogTitle>Deseja apagar esta tarefa?</DialogTitle>

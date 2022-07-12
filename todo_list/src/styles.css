@@ -27,34 +27,49 @@ body {
 
 
 
-
+ 
 .card:hover {
-  color: black;
-  background-color: #ffffff1c;
+  font-size: 400px;
+  background-color: #c9fdecf8;
+  box-shadow: 7px 7px 13px 0px rgba(255, 255, 255, 0.858);
+  transform: scale(1.15);
+  
  
-}
-.média {
-  border: 3px solid #fffb00;
-}
- 
-.baixa {
-  border: 3px solid #3bb54a;
+} 
+.newTodo:hover {
+  border-left: 3px solid #fffb00;
+
 }
  
-.alta {
-  border: 3px solid #ff0015;
+.inProgress:hover {
+  border-left: 3px solid #3bb54a;
+}
+ 
+.done:hover {
+  border-left: 3px solid #ff0015;
+}
+.newTodo {
+  color: #fffb00;  
+}
+ 
+.inProgress {
+  color: #3bb54a;
+}
+
+.done{
+  color: #ff0015 ;
 }
  
 .card {
   border-radius: 15px;
-  background-color: #012a4a50;
-  box-shadow: 7px 7px 13px 0px rgba(50, 50, 50, 0.22);
-  padding: 10px;
-  margin: 20px;
+  background-color: #c9fdec8e;
+  box-shadow: 7px 7px 13px 0px rgba(255, 255, 255, 0.22);
+  padding: 30px;
+  margin: 5px;
   width: 200px;
-  transition: all 0.5s ease-out;
-  overflow:hidden
- 
+  transition: all 0.2s ease-out; 
+  text-shadow: -1px 0 rgba(0, 0, 0, 0.2), 0 1px rgba(0, 0, 0, 0.2), 1px 0 rgba(0, 0, 0, 0.2), 0 -1px rgba(0, 0, 0, 0.2);
+cursor: pointer;
 }
 
 .grelha{

@@ -1,5 +1,6 @@
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
+import RestartAltIcon from "@mui/icons-material/RestartAlt";
 import {
   Box,
   Button,
@@ -9,11 +10,10 @@ import {
   Select,
   Stack,
   TableContainer,
-  TableHead,
+  TableHead
 } from "@mui/material";
 import IconButton from "@mui/material/IconButton";
 import Paper from "@mui/material/Paper";
-import RestartAltIcon from "@mui/icons-material/RestartAlt";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -23,16 +23,14 @@ import { useSelector } from "react-redux";
 import EditTask from "./EditTask";
 import RemoveTask from "./RemoveTask";
 import { TaskForm } from "./TaskForm";
-
-export default function Detail() {
+export default function Detail(props) {
   const [prior, setPrior] = React.useState("");
-  //const deleteHandler = () => {};
   let data = useSelector((store) => store.array);
-  let filtrado = useSelector((store)=>store.array)
   if (prior !== "") {
     data = data.filter((row) => row.priority === prior);
   }
-  const [state, setState] = React.useState("");
+  const [state, setState] = React.useState(props.thisState);
+
   if (state !== "") {
     data = data.filter((row) => row.state === state);
   }
@@ -60,9 +58,9 @@ export default function Detail() {
                   setState(event.target.value);
                 }}
               >
-                <MenuItem value={"newTodo"}>Novo</MenuItem>
-                <MenuItem value={"inProgress"}>Em andamento</MenuItem>
-                <MenuItem value={"done"}>Feito</MenuItem>
+                <MenuItem value={"novo"}>Novo</MenuItem>
+                <MenuItem value={"em andamento"}>Em andamento</MenuItem>
+                <MenuItem value={"terminado"}>terminado</MenuItem>
               </Select>
             </FormControl>
           </Box>
@@ -151,12 +149,7 @@ export default function Detail() {
               </TableBody>
             </Table>
           </TableContainer>{" "}
-          <Stack mt={3} alignItems="center">
-
-            {
-            
-            console.log("counter")}
-          </Stack>
+          <Stack mt={3} alignItems="center"></Stack>
         </Stack>
       </Stack>
     </>

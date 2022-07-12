@@ -1,4 +1,3 @@
-import { SettingsInputAntennaTwoTone } from "@mui/icons-material";
 import {
   Box,
   Button,
@@ -7,13 +6,13 @@ import {
   MenuItem,
   Select,
   Stack,
-  TextField,
+  TextField
 } from "@mui/material";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogTitle from "@mui/material/DialogTitle";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { editTask } from "./actions";
 
@@ -45,7 +44,7 @@ export default function EditTask({ open, setOpen, edit }) {
             value={describe}
             onChange={(e) => {
               setDescribe(e.target.value);
-              console.log(e);
+              // console.log(e);
             }}
             label="Descrição"
           />
@@ -79,9 +78,9 @@ export default function EditTask({ open, setOpen, edit }) {
                   setState(e.target.value);
                 }}
               >
-                <MenuItem value={"newTodo"}>Novo</MenuItem>
-                <MenuItem value={"inProgress"}>Em andamento</MenuItem>
-                <MenuItem value={"done"}>Feito</MenuItem>
+                <MenuItem value={"novo"}>Novo</MenuItem>
+                <MenuItem value={"em andamento"}>Em andamento</MenuItem>
+                <MenuItem value={"terminado"}>terminado</MenuItem>
               </Select>
             </FormControl>
           </Box>

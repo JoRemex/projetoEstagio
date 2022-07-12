@@ -25,14 +25,16 @@ import { array } from "./actions";
 export const TaskForm = () => {
   const [inputOne, setInputOne] = useState("");
   const [inputTwo, setInputTwo] = useState("");
+  const [prior, setPrior] = useState("baixa");
 
+  const [state, setState] = useState("novo");
   //data e hora---------------------------------------------------------------------------------------------------------
   const [inputDate, setInputDate] = useState(new Date());
   //console.log(inputDate.toUTCString() + "    cnslog da data");
   const handleChange = (newValue) => {
     setInputDate(newValue);
   };
-  const [prior, setPrior] = useState("");
+
   const newHandleChange = (event) => {
     setPrior(event.target.value);
   };
@@ -41,7 +43,7 @@ export const TaskForm = () => {
     setState(event.target.value);
   };
 
-  const [state, setState] = useState("newTodo");
+
 
   const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
@@ -54,7 +56,7 @@ export const TaskForm = () => {
   // ----------------------------------------------------------------------------------------------------------------
   return (
     <Stack direction="row">
-      <Button variant="outlined" onClick={handleClickOpen}>
+      <Button variant="contained" onClick={handleClickOpen}>
         +
       </Button>
       <Dialog open={open} onClose={handleClose}>
@@ -62,6 +64,7 @@ export const TaskForm = () => {
         <DialogContent>
           <TextField
             autoFocus
+            required
             margin="dense"
             id="name"
             value={inputOne}
@@ -74,9 +77,9 @@ export const TaskForm = () => {
             variant="outlined"
           />
           <TextField
-            autoFocus
             margin="dense"
             id="asd"
+            required
             value={inputTwo}
             label="Descrição"
             onChange={(e) => {
@@ -88,7 +91,7 @@ export const TaskForm = () => {
           />
           <Stack marginTop={1}>
             <Box alignItems="center" sx={{ minWidth: 120 }}>
-              <FormControl fullWidth>
+              <FormControl fullWidth required>
                 <InputLabel id="demo-simple-select-label">
                   Prioridade
                 </InputLabel>
@@ -117,9 +120,9 @@ export const TaskForm = () => {
                   label="state"
                   onChange={stateHandleChange}
                 >
-                  <MenuItem value={"newTodo"}>Novo</MenuItem>
-                  <MenuItem value={"inProgress"}>Em andamento</MenuItem>
-                  <MenuItem value={"done"}>Feito</MenuItem>
+                  <MenuItem value={"novo"}>Novo</MenuItem>
+                  <MenuItem value={"em andamento"}>Em andamento</MenuItem>
+                  <MenuItem value={"terminado"}>terminado</MenuItem>
                 </Select>
               </FormControl>
             </Box>
@@ -153,8 +156,8 @@ export const TaskForm = () => {
                 );
                 setInputOne("");
                 setInputTwo("");
-                setPrior("");
-                setState("");
+                setPrior("baixa");
+                setState("novo");
               }
               handleClose();
             }}
