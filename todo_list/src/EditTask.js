@@ -80,7 +80,7 @@ export default function EditTask({ open, setOpen, edit }) {
               >
                 <MenuItem value={"novo"}>Novo</MenuItem>
                 <MenuItem value={"em andamento"}>Em andamento</MenuItem>
-                <MenuItem value={"terminado"}>terminado</MenuItem>
+                <MenuItem value={"terminado"}>Terminado</MenuItem>
               </Select>
             </FormControl>
           </Box>

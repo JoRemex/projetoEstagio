@@ -122,7 +122,7 @@ export const TaskForm = () => {
                 >
                   <MenuItem value={"novo"}>Novo</MenuItem>
                   <MenuItem value={"em andamento"}>Em andamento</MenuItem>
-                  <MenuItem value={"terminado"}>terminado</MenuItem>
+                  <MenuItem value={"terminado"}>Terminado</MenuItem>
                 </Select>
               </FormControl>
             </Box>
@@ -140,7 +140,7 @@ export const TaskForm = () => {
           </Stack>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose}>Cancel</Button>
+          <Button onClick={handleClose}>Cancelar</Button>
           <Button
             onClick={() => {
               if (inputOne !== "" && inputTwo !== "" && prior !== "") {

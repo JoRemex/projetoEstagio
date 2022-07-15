@@ -60,7 +60,7 @@ export default function Detail(props) {
               >
                 <MenuItem value={"novo"}>Novo</MenuItem>
                 <MenuItem value={"em andamento"}>Em andamento</MenuItem>
-                <MenuItem value={"terminado"}>terminado</MenuItem>
+                <MenuItem value={"terminado"}>Terminado</MenuItem>
               </Select>
             </FormControl>
           </Box>
